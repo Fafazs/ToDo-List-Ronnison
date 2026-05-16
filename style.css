@@ -138,3 +138,36 @@ button:hover{
   border-radius: 50%;
   font-size: 24px;
 }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 300px;
+    margin: auto;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.form-input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.form-button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-text {
+    text-align: center;
+}
+
+.form-link {
+    text-decoration: none;
+}

@@ -88,3 +88,86 @@ function startTimer() {
     start.innerText="Iniciar"
 }
 }
+
+
+// LOGIN
+const loginForm = document.getElementById("login-form");
+
+loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    // PEGANDO OS VALORES DOS INPUTS
+    const user = document.getElementById("user").value;
+    const password = document.getElementById("password").value;
+
+    try {
+        // ENVIANDO PARA O BACKEND
+        const response = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                user,
+                password,
+            }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(data.message);
+
+            requestName();
+            goTo("home");
+        } else {
+            alert(data.message);
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Erro ao conectar com o servidor.");
+    }
+});
+
+
+// REGISTRO
+const registerForm = document.getElementById("register-form");
+
+registerForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    // PEGANDO OS VALORES DOS INPUTS
+    const user = document.getElementById("register-user").value;
+    const email = document.getElementById("register-email").value;
+    const password = document.getElementById("register-password").value;
+
+    try {
+        // ENVIANDO PARA O BACKEND
+        const response = await fetch("http://localhost:3000/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                user,
+                email,
+                password,
+            }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(data.message);
+
+            goTo("login-screen");
+        } else {
+            alert(data.message);
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Erro ao conectar com o servidor.");
+    }
+});

@@ -8,13 +8,85 @@
 <body>
 
 <!-- LOGIN -->
-<section class="screen active">
-    <div id="login" class="screen active">
-        <h1>Estude!</h1>
-        <input type="text" placeholder="Usuario" id="user" />
-        <input type="password" placeholder="Senha" />
-        <button onclick="goTo('home'); requestName();"  >Entrar</button>
-    </div>
+<section id="login-screen" class="screen active">
+    <form id="login-form" class="form-container">
+        <h1 class="form-title">Estude!</h1>
+
+        <input 
+            type="text" 
+            placeholder="Usuário" 
+            id="user" 
+            class="form-input"
+            required
+        />
+
+        <input 
+            type="password" 
+            placeholder="Senha" 
+            id="password" 
+            class="form-input"
+            required
+        />
+
+        <button 
+            type="submit" 
+            class="form-button"
+        >
+            Entrar
+        </button>
+
+        <p class="form-text">
+            Não possui cadastro?
+            <a href="#" onclick="goTo('register-screen')" class="form-link">
+                Registrar
+            </a>
+        </p>
+    </form>
+</section>
+
+<!-- REGISTRO -->
+<section id="register-screen" class="screen">
+    <form id="register-form" class="form-container">
+        <h1 class="form-title">Criar Conta</h1>
+
+        <input 
+            type="text" 
+            placeholder="Usuário" 
+            id="register-user" 
+            class="form-input"
+            required
+        />
+
+        <input 
+            type="email" 
+            placeholder="Email" 
+            id="register-email" 
+            class="form-input"
+            required
+        />
+
+        <input 
+            type="password" 
+            placeholder="Senha" 
+            id="register-password" 
+            class="form-input"
+            required
+        />
+
+        <button 
+            type="submit" 
+            class="form-button"
+        >
+            Registrar
+        </button>
+
+        <p class="form-text">
+            Já possui conta?
+            <a href="#" onclick="goTo('login-screen')" class="form-link">
+                Entrar
+            </a>
+        </p>
+    </form>
 </section>
     
 <!-- HOME -->
